@@ -54,7 +54,7 @@
                 <p>আপনার নির্বাচিত প্যাকেজের মোট বিল নিচের নম্বরে সেন্ড মানি করে পাঠান।</p>
                 <!-- পেমেন্ট নম্বর এবং কপি বাটন -->
                 <div class="payment-info">
-                    <span><strong>বিকাশ/নগদ:</strong> <span id="paymentNumber">01783193564</span> (পার্সোনাল)</span>
+                    <span><strong>বিকাশ:</strong> <span id="paymentNumber">01788024132</span> (পার্সোনাল)</span>
                     <button type="button" id="copyButton">
                         <i class="fas fa-copy"></i> কপি
                     </button>
@@ -72,7 +72,7 @@
             <div class="step-icon">✅</div>
             <div class="step-content">
                 <h3>ধাপ ৩: কনফার্মেশন পান</h3>
-                <p>আমরা আপনার পেমেন্ট যাচাই করে ৩০ মিনিটের মধ্যে আপনার স্লটটি কনফার্ম করে জানাব।</p>
+                <p>আমরা আপনার পেমেন্ট যাচাই করে ৩০ মিনিটের মধ্যে আপনার স্লটটি কনফার্ম করে ইমেইলে জানাব।</p>
             </div>
         </div>
     </div>
@@ -82,17 +82,17 @@
       <form id="bookingForm">
         <select id="package" required>
           <option value="" data-price="0">-- প্যাকেজ সিলেক্ট করুন --</option>
-          <option value="Basic Feel" data-price="500">Basic Feel (৳৫০০)</option>
-          <option value="Sweet Mood" data-price="800">Sweet Mood (৳৮০০)</option>
-          <option value="Deep Talk" data-price="1200">Deep Talk (৳১২০০)</option>
-          <option value="Silent Desire" data-price="2000">Silent Desire (৳২০০০)</option>
-          <option value="Real Feel" data-price="3000">Real Feel (৳৩০০০)</option>
-          <option value="Fantasy Full" data-price="4500">Fantasy Full (৳৪৫০০)</option>
+          <option value="Basic Feel" data-price="300">Basic Feel (৳৩০০)</option>
+          <option value="Sweet Mood" data-price="500">Sweet Mood (৳৫০০)</option>
+          <option value="Deep Talk" data-price="1000">Deep Talk (৳১০০০)</option>
+          <option value="Silent Desire" data-price="1500">Silent Desire (৳১৫০০)</option>
+          <option value="Real Feel" data-price="2500">Real Feel (৳২৫০০)</option>
+          <option value="Fantasy Full" data-price="4000">Fantasy Full (৳৪০০০)</option>
         </select>
 
         <div class="addons-section">
             <h4>অতিরিক্ত যোগ করুন (ঐচ্ছিক)</h4>
-            <label><input type="checkbox" name="addon" value="-100" data-text="চ্যাট-অনলি"> চ্যাট-অনলি (৳১০০ ছাড়)</label>
+            <label><input type="checkbox" name="addon" value="+100" data-text="চ্যাট-অনলি"> চ্যাট-অনলি (+৳১০০)</label>
             <label><input type="checkbox" name="addon" value="200" data-text="ব্যাকগ্রাউন্ড মিউজিক"> ব্যাকগ্রাউন্ড মিউজিক (+৳২০০)</label>
             <label><input type="checkbox" name="addon" value="300" data-text="আর্জেন্ট স্লট"> আর্জেন্ট স্লট (১৫ মিনিটের মধ্যে) (+৳৩০০)</label>
             <label><input type="checkbox" name="addon" value="500" data-text="সপ্তাহান্ত/রাতের স্লট"> সপ্তাহান্ত/রাতের স্লট (+৳৫০০)</label>
@@ -104,6 +104,7 @@
 
         <input type="text" id="name" placeholder="আপনার নাম" required />
         <input type="tel" id="phone" placeholder="আপনার মোবাইল নম্বর" required />
+        <input type="email" id="email" placeholder="আপনার ইমেইল আইডি" required />
         <input type="text" id="transactionId" placeholder="পেমেন্টের Transaction ID" required />
         <input type="time" id="time" required />
 

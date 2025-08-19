@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const timeVal = timeInput.value;
       const hour = parseInt(timeVal.split(':')[0], 10);
       if (hour < 19 && hour >= 2) {
-        formMessage.textContent = '❌ দুঃখিত, আমাদের কার্যক্রম সন্ধ্যা ৭টা থেকে রাত ২টার মধ্যে। অনুগ্রহ করে এই সময়ের মধ্যে একটি স্লট নির্বাচন করুন।';
+        formMessage.textContent = '❌ দুঃখিত, আমাদের কার্যক্রম সন্ধ্যা ৭টা থেকে রাত ৩টার মধ্যে। অনুগ্রহ করে এই সময়ের মধ্যে একটি স্লট নির্বাচন করুন।';
         formMessage.className = 'error';
         return;
       }
@@ -169,19 +169,25 @@ document.addEventListener('DOMContentLoaded', () => {
       formMessage.style.display = 'none';
 
       const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
         pkg: packageSelect.value,
         time: timeInput.value,
-        transactionId: document.getElementById('transactionId').value,
+        transactionId: document.getElementById("transactionId").value,
         finalPrice: totalPriceEl.textContent,
-        addons: Array.from(addonsCheckboxes).filter(cb => cb.checked).map(cb => cb.dataset.text).join(', ') || 'কোনোটি নয়'
+        addons:
+          Array.from(addonsCheckboxes)
+            .filter((cb) => cb.checked)
+            .map((cb) => cb.dataset.text)
+            .join(", ") || "কোনোটি নয়",
       };
 
       const message = `
 📩 *নতুন বুকিং রিসিভ হয়েছে:*
 👤 *নাম:* ${formData.name}
 📱 *ফোন:* ${formData.phone}
+📧 *ইমেইল:* ${formData.email}
 💳 *Transaction ID:* ${formData.transactionId}
 🎁 *প্যাকেজ:* ${formData.pkg}
 ✨ *অ্যাড-অন:* ${formData.addons}
