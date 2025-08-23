@@ -6,14 +6,18 @@
   --dark-bg: #141e30;
   --card-bg: rgba(0, 0, 0, 0.6);
   --input-bg: #2c2c4c;
+  --special-offer-color: #ffc107;
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: 'Poppins', sans-serif;
   color: white;
   min-height: 100vh;
   background: linear-gradient(135deg, var(--dark-bg), #243b55);
 }
+
 h1 { font-size: 2.8rem; color: #ff85c1; font-weight: 700; }
 h2 { font-size: 2rem; color: var(--secondary-color); margin-bottom: 20px; }
 
@@ -22,37 +26,150 @@ header { text-align: center; margin-bottom: 40px; }
 header p { font-size: 1.2rem; color: #f5f5f5; margin-top: 10px; }
 .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
+/* --- Glow Card Main Style --- */
 .glow-card {
-  position: relative; padding: 25px; border-radius: 15px;
-  background: var(--card-bg); overflow: hidden; display: flex;
-  flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  padding: 25px;
+  border-radius: 15px;
+  background: var(--card-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-top: 2px solid rgba(255, 133, 193, 0.3);
+  box-shadow: 0 0 15px rgba(255, 64, 129, 0.2);
 }
 .glow-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 .glow-card h2 { margin-bottom: 15px; font-size: 1.8rem; }
 .glow-card p { margin-bottom: 10px; color: #ddd; }
-.glow-card p.description { flex-grow: 1; color: #bbb; font-style: italic; }
 
+.glow-card .description {
+  flex-grow: 1;
+  color: #bbb;
+  font-style: italic;
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-right: 8px;
+}
+
+/* --- Scrollbar Style --- */
+.glow-card .description::-webkit-scrollbar { width: 6px; }
+.glow-card .description::-webkit-scrollbar-thumb { background-color: var(--primary-color); border-radius: 3px; }
+.glow-card .description::-webkit-scrollbar-track { background-color: #333; }
+
+/* --- Card Elements --- */
 .status-bar {
-  background-color: rgba(255, 255, 255, 0.1); color: white;
-  font-size: 0.9rem; padding: 8px 12px; border-radius: 20px;
-  text-align: center; margin-top: 15px; font-weight: 500;
-  transition: background-color 0.3s; min-height: 35px;
-  display: flex; align-items: center; justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .status-bar.booked { background-color: var(--primary-color); }
-.status-bar .fa-eye { margin-right: 5px; margin-left: 5px; }
+.status-bar .fa-eye { margin: 0 5px; }
 
 .card-button {
-  margin-top: 20px; padding: 12px 15px; border-radius: 8px;
-  background-color: var(--primary-color); color: white; text-align: center;
-  text-decoration: none; font-weight: bold; transition: all 0.3s ease;
+  margin-top: 20px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
   display: block;
 }
 .card-button:hover:not(.countdown-active) { background-color: #e12885; transform: scale(1.05); }
 .card-button.countdown-active { background-color: #4a4e69; cursor: not-allowed; font-size: 1rem; }
 .card-button.countdown-active:hover { transform: none; }
 
+/* --- New Special Offer Button & Badge --- */
+.special-offer-btn {
+  background: linear-gradient(45deg, var(--special-offer-color), #ffd54f);
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.special-offer-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4); }
+
+.card-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--special-offer-color);
+    color: #000;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 20px;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* --- Special Offer Popup --- */
+.special-offer-popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.popup-content {
+  background: #2c2c4c;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  border-top: 5px solid var(--special-offer-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.popup-content h3 { color: var(--special-offer-color); font-size: 1.8rem; }
+.popup-content .offer-subtitle { font-style: italic; color: #ccc; margin-top: -10px; margin-bottom: 20px; }
+.popup-content .offer-main-text { font-size: 1.2rem; margin-bottom: 15px; }
+.popup-content .offer-footer { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; margin-top: 20px; font-size: 0.9rem;}
+.close-popup {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #888;
+  transition: color 0.3s;
+}
+.close-popup:hover { color: white; }
+
+/* --- Testimonials & Info Section --- */
 .info-section { background: rgba(0, 0, 0, 0.4); border-radius: 15px; padding: 30px; margin: 40px auto; text-align: center; border-left: 5px solid var(--primary-color); }
 .testimonial-subtitle { color: #ccc; margin-bottom: 25px; font-size: 0.9rem; }
 .testimonials .testimonial-card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; margin-top: 15px; }
@@ -68,6 +185,7 @@ header p { font-size: 1.2rem; color: #f5f5f5; margin-top: 10px; }
 .feedback-button:hover { background-color: var(--primary-color); color: white; transform: scale(1.05); }
 .feedback-button .fa-pen-to-square { margin-right: 8px; }
 
+/* --- Booking Page --- */
 .booking-page { display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
 .booking-page .main-container { display: flex; gap: 40px; width: 100%; max-width: 1200px; align-items: flex-start; }
 @media (max-width: 992px) { .booking-page .main-container { flex-direction: column; align-items: center; } }
@@ -86,11 +204,12 @@ button:disabled { background-color: #555; cursor: not-allowed; }
 .addons-section h4 { text-align: center; margin-bottom: 10px; color: var(--secondary-color); }
 .addons-section label { display: block; margin-bottom: 8px; cursor: pointer; }
 .addons-section input { width: auto; margin-right: 10px; }
-.total-bill { font-size: 1.5rem; font-weight: bold; color: #ffc107; text-align: center; margin: 20px 0; background: var(--input-bg); padding: 10px; border-radius: 8px; }
+.total-bill { font-size: 1.5rem; font-weight: bold; color: var(--special-offer-color); text-align: center; margin: 20px 0; background: var(--input-bg); padding: 10px; border-radius: 8px; }
 #formMessage { margin-top: 15px; padding: 12px; border-radius: 5px; font-weight: 500; display: none; }
 #formMessage.success { background-color: #28a745; display: block; }
 #formMessage.error { background-color: #dc3545; display: block; }
 
+/* --- Footer & Loader --- */
 footer { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); font-size: 0.9rem; color: #ccc; margin-top: 40px;}
 .back-link { color: #ccc; text-decoration: none; display: inline-block; margin-top: 20px; }
 .loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f0c29; display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease; }

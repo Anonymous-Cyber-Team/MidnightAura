@@ -1,152 +1,223 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <title>Booking Form - MidnightAura</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Form - MidnightAura</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- নতুন কপি বাটনের জন্য স্টাইল -->
-  <style>
-    .payment-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #1a1a2e;
-      padding: 10px 15px;
-      border-radius: 8px;
-      margin-top: 5px;
-    }
-    #copyButton {
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 8px 12px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      margin: 0; /* রিসেট মার্জিন */
-      width: auto; /* রিসেট প্রস্থ */
-      transition: background-color 0.2s, transform 0.2s;
-    }
-    #copyButton:hover {
-      background-color: #e12885;
-      transform: scale(1.05);
-    }
-    #copyButton .fa-copy, #copyButton .fa-check {
-      margin-right: 5px;
-    }
-  </style>
+    <style>
+      .payment-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #1a1a2e;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-top: 5px;
+      }
+      #copyButton {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin: 0;
+        width: auto;
+        transition: background-color 0.2s, transform 0.2s;
+      }
+      #copyButton:hover {
+        background-color: #e12885;
+        transform: scale(1.05);
+      }
+      #copyButton .fa-copy,
+      #copyButton .fa-check {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body class="booking-page">
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+    </div>
 
-</head>
-<body class="booking-page">
-  <div class="loader-wrapper">
-    <div class="loader"></div>
-  </div>
-
-  <div class="main-container">
-    <div class="booking-method">
+    <div class="main-container">
+      <div class="booking-method">
         <h2>📝 বুকিং করার পদ্ধতি</h2>
         <div class="step">
-            <div class="step-icon">💳</div>
-            <div class="step-content">
-                <h3>ধাপ ১: পেমেন্ট করুন</h3>
-                <p>আপনার নির্বাচিত প্যাকেজের মোট বিল নিচের নম্বরে সেন্ড মানি করে পাঠান।</p>
-                <!-- পেমেন্ট নম্বর এবং কপি বাটন -->
-                <div class="payment-info">
-                    <span><strong>বিকাশ:</strong> <span id="paymentNumber">01788024132</span> (পার্সোনাল)</span>
-                    <button type="button" id="copyButton">
-                        <i class="fas fa-copy"></i> কপি
-                    </button>
-                </div>
+          <div class="step-icon">💳</div>
+          <div class="step-content">
+            <h3>ধাপ ১: পেমেন্ট করুন</h3>
+            <p>
+              আপনার নির্বাচিত প্যাকেজের মোট বিল নিচের নম্বরে সেন্ড মানি করে
+              পাঠান।
+            </p>
+            <div class="payment-info">
+              <span
+                ><strong>বিকাশ:</strong>
+                <span id="paymentNumber">01788024132</span> (পার্সোনাল)</span
+              >
+              <button type="button" id="copyButton">
+                <i class="fas fa-copy"></i> কপি
+              </button>
             </div>
+          </div>
         </div>
         <div class="step">
-            <div class="step-icon">✍️</div>
-            <div class="step-content">
-                <h3>ধাপ ২: ফর্ম পূরণ করুন</h3>
-                <p>টাকা পাঠানোর পর নিচের ফর্মটি পূরণ করে আপনার লেনদেনের Transaction ID টি দিন।</p>
-            </div>
+          <div class="step-icon">✍️</div>
+          <div class="step-content">
+            <h3>ধাপ ২: ফর্ম পূরণ করুন</h3>
+            <p>
+              টাকা পাঠানোর পর নিচের ফর্মটি পূরণ করে আপনার লেনদেনের Transaction
+              ID টি দিন।
+            </p>
+          </div>
         </div>
         <div class="step">
-            <div class="step-icon">✅</div>
-            <div class="step-content">
-                <h3>ধাপ ৩: কনফার্মেশন পান</h3>
-                <p>আমরা আপনার পেমেন্ট যাচাই করে ৩০ মিনিটের মধ্যে আপনার স্লটটি কনফার্ম করে ইমেইলে জানাব।</p>
-            </div>
+          <div class="step-icon">✅</div>
+          <div class="step-content">
+            <h3>ধাপ ৩: কনফার্মেশন পান</h3>
+            <p>
+              আমরা আপনার পেমেন্ট যাচাই করে ৩০ মিনিটের মধ্যে আপনার স্লটটি কনফার্ম
+              করে ইমেইলে জানাব।
+            </p>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="form-container">
-      <h1>📩 বুকিং ফর্ম</h1>
-      <form id="bookingForm">
-        <select id="package" required>
-          <option value="" data-price="0">-- প্যাকেজ সিলেক্ট করুন --</option>
-          <option value="Basic Feel" data-price="300">Basic Feel (৳৩০০)</option>
-          <option value="Sweet Mood" data-price="500">Sweet Mood (৳৫০০)</option>
-          <option value="Deep Talk" data-price="1000">Deep Talk (৳১০০০)</option>
-          <option value="Silent Desire" data-price="1500">Silent Desire (৳১৫০০)</option>
-          <option value="Real Feel" data-price="2500">Real Feel (৳২৫০০)</option>
-          <option value="Fantasy Full" data-price="4000">Fantasy Full (৳৪০০০)</option>
-        </select>
+      <div class="form-container">
+        <h1>📩 বুকিং ফর্ম</h1>
+        <form id="bookingForm">
+          <select id="package" required>
+            <option value="" data-price="0">-- প্যাকেজ সিলেক্ট করুন --</option>
+            <option value="Basic Feel" data-price="300">
+              Basic Feel (৳৩০০)
+            </option>
+            <option value="Sweet Mood" data-price="500">
+              Sweet Mood (৳৫০০)
+            </option>
+            <option value="Deep Talk" data-price="1000">
+              Deep Talk (৳১০০০)
+            </option>
+            <option value="Silent Desire" data-price="1500">
+              Silent Desire (৳১৫০০)
+            </option>
+            <option value="Real Feel" data-price="2200">
+              Real Feel (৳২২০০)
+            </option>
+            <option value="Fantasy Full" data-price="3000">
+              Fantasy Full (৳৩০০০)
+            </option>
+          </select>
 
-        <div class="addons-section">
+          <div class="addons-section">
             <h4>অতিরিক্ত যোগ করুন (ঐচ্ছিক)</h4>
-            <label><input type="checkbox" name="addon" value="+100" data-text="চ্যাট-অনলি"> চ্যাট-অনলি (+৳১০০)</label>
-            <label><input type="checkbox" name="addon" value="200" data-text="ব্যাকগ্রাউন্ড মিউজিক"> ব্যাকগ্রাউন্ড মিউজিক (+৳২০০)</label>
-            <label><input type="checkbox" name="addon" value="300" data-text="আর্জেন্ট স্লট"> আর্জেন্ট স্লট (১৫ মিনিটের মধ্যে) (+৳৩০০)</label>
-            <label><input type="checkbox" name="addon" value="500" data-text="সপ্তাহান্ত/রাতের স্লট"> সপ্তাহান্ত/রাতের স্লট (+৳৫০০)</label>
-        </div>
+            <label
+              ><input
+                type="checkbox"
+                name="addon"
+                value="100"
+                data-text="চ্যাট-অনলি"
+              />
+              চ্যাট-অনলি (+৳১০০)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="addon"
+                value="200"
+                data-text="ব্যাকগ্রাউন্ড মিউজিক"
+              />
+              ব্যাকগ্রাউন্ড মিউজিক (+৳২০০)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="addon"
+                value="300"
+                data-text="আর্জেন্ট স্লট"
+              />
+              আর্জেন্ট স্লট (১৫ মিনিটের মধ্যে) (+৳৩০০)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="addon"
+                value="500"
+                data-text="সপ্তাহান্ত/রাতের স্লট"
+              />
+              সপ্তাহান্ত/রাতের স্লট (+৳৫০০)</label
+            >
+          </div>
 
-        <div class="total-bill">
+          <div class="total-bill">
             মোট বিল: <span id="totalPrice">৳ 0</span>
-        </div>
+          </div>
 
-        <input type="text" id="name" placeholder="আপনার নাম" required />
-        <input type="tel" id="phone" placeholder="আপনার মোবাইল নম্বর" required />
-        <input type="email" id="email" placeholder="আপনার ইমেইল আইডি" required />
-        <input type="text" id="transactionId" placeholder="পেমেন্টের Transaction ID" required />
-        <input type="time" id="time" required />
+          <input type="text" id="name" placeholder="আপনার নাম" required />
+          <input
+            type="tel"
+            id="phone"
+            placeholder="আপনার মোবাইল নম্বর"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="আপনার ইমেইল আইডি"
+            required
+          />
+          <input
+            type="text"
+            id="transactionId"
+            placeholder="পেমেন্টের Transaction ID"
+            required
+          />
+          <input type="time" id="time" required />
 
-        <button type="submit" id="submitBtn">✅ বুকিং কনফার্ম করুন</button>
-      </form>
-      <div id="formMessage"></div>
-      <p><a href="index.html" class="back-link">← হোমপেজে ফিরে যান</a></p>
+          <button type="submit" id="submitBtn">✅ বুকিং কনফার্ম করুন</button>
+        </form>
+        <div id="formMessage"></div>
+        <p><a href="index.html" class="back-link">← হোমপেজে ফিরে যান</a></p>
+      </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const copyButton = document.getElementById("copyButton");
+        const numberSpan = document.getElementById("paymentNumber");
 
+        if (copyButton && numberSpan) {
+          const numberToCopy = numberSpan.innerText;
 
+          copyButton.addEventListener("click", () => {
+            navigator.clipboard
+              .writeText(numberToCopy)
+              .then(() => {
+                const originalHTML = copyButton.innerHTML;
+                copyButton.innerHTML = '<i class="fas fa-check"></i> কপিড!';
+                copyButton.style.backgroundColor = "#28a745";
 
-  <!-- নতুন কপি বাটনের জন্য জাভাস্ক্রিপ্ট -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const copyButton = document.getElementById('copyButton');
-      const numberSpan = document.getElementById('paymentNumber');
-
-      if (copyButton && numberSpan) {
-        const numberToCopy = numberSpan.innerText;
-
-        copyButton.addEventListener('click', () => {
-          navigator.clipboard.writeText(numberToCopy).then(() => {
-            const originalHTML = copyButton.innerHTML;
-            copyButton.innerHTML = '<i class="fas fa-check"></i> কপিড!';
-            copyButton.style.backgroundColor = '#28a745'; // সবুজ রঙ
-
-            setTimeout(() => {
-              copyButton.innerHTML = originalHTML;
-              copyButton.style.backgroundColor = ''; // আগের রঙে ফেরত
-            }, 2000); // ২ সেকেন্ড পর আগের অবস্থায় ফিরে আসবে
-          }).catch(err => {
-            console.error('Failed to copy: ', err);
-            alert('দুঃখিত, নম্বরটি কপি করা যায়নি।');
+                setTimeout(() => {
+                  copyButton.innerHTML = originalHTML;
+                  copyButton.style.backgroundColor = "";
+                }, 2000);
+              })
+              .catch((err) => {
+                console.error("Failed to copy: ", err);
+                alert("দুঃখিত, নম্বরটি কপি করা যায়নি।");
+              });
           });
-        });
-      }
-    });
-  </script>
-
-</body>
+        }
+      });
+    </script>
+  </body>
 </html>
